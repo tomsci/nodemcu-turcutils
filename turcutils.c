@@ -141,13 +141,13 @@ static int turcutils_int64_eq(lua_State* L)
   return 1;
 }
 
-LROT_BEGIN(module)
+LROT_BEGIN(turcutils, NULL, 0)
   LROT_FUNCENTRY(and32, turcutils_and32)
   LROT_FUNCENTRY(not32, turcutils_not32)
   LROT_FUNCENTRY(int64, turcutils_int64)
-LROT_END(module, NULL, 0)
+LROT_END(turcutils, NULL, 0)
 
-LROT_BEGIN(turcutils_int64_mt)
+LROT_BEGIN(turcutils_int64_mt, NULL, 0)
   LROT_FUNCENTRY(__add, turcutils_int64_add)
   LROT_FUNCENTRY(__sub, turcutils_int64_sub)
   LROT_FUNCENTRY(__div, turcutils_int64_div)
@@ -160,10 +160,10 @@ LROT_BEGIN(turcutils_int64_mt)
   LROT_TABENTRY(__index, turcutils_int64_mt)
 LROT_END(turcutils_int64_mt, NULL, 0)
 
-static int module_init(lua_State *L)
+static int luaopen_turcutils(lua_State *L)
 {
-  luaL_rometatable(L, TURCUTILS_INT64_MT, (void *)turcutils_int64_mt_map);
+  luaL_rometatable(L, TURCUTILS_INT64_MT, LROT_TABLEREF(turcutils_int64_mt));
   return 0;
 }
 
-NODEMCU_MODULE_STD();
+NODEMCU_MODULE(TURCUTILS, "turcutils", turcutils, luaopen_turcutils);
