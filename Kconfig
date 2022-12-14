@@ -1,0 +1,11 @@
+menu "External modules"
+
+    config NODEMCU_CMODULE_TURCUTILS
+        bool "turcutils module"
+        default "n"
+        help
+            Includes the turcutils module from
+            https://github.com/tomsci/nodemcu-turcutils
+
+
+endmenu
