@@ -1,4 +1,3 @@
-# If necessary, add items to the PRIV_REQUIRES list below
 idf_component_register(
  SRCS "turcutils.c"
  INCLUDE_DIRS "." "${CMAKE_CURRENT_BINARY_DIR}"
@@ -8,4 +7,4 @@ idf_component_register(
    "platform"
 )
 
-extmod_declare_module(TURCUTILS turcutils)
+extmod_declare_module(TURCUTILS)
