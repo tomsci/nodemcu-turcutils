@@ -147,7 +147,7 @@ LROT_BEGIN(turcutils, NULL, 0)
   LROT_FUNCENTRY(int64, turcutils_int64)
 LROT_END(turcutils, NULL, 0)
 
-LROT_BEGIN(turcutils_int64_mt, NULL, 0)
+LROT_BEGIN(turcutils_int64_mt, NULL, LROT_MASK_EQ | LROT_MASK_INDEX)
   LROT_FUNCENTRY(__add, turcutils_int64_add)
   LROT_FUNCENTRY(__sub, turcutils_int64_sub)
   LROT_FUNCENTRY(__div, turcutils_int64_div)
@@ -158,7 +158,7 @@ LROT_BEGIN(turcutils_int64_mt, NULL, 0)
   LROT_FUNCENTRY(toints, turcutils_int64_toints)
   LROT_FUNCENTRY(__tostring, turcutils_int64_tostring)
   LROT_TABENTRY(__index, turcutils_int64_mt)
-LROT_END(turcutils_int64_mt, NULL, 0)
+LROT_END(turcutils_int64_mt, NULL, LROT_MASK_EQ | LROT_MASK_INDEX)
 
 static int luaopen_turcutils(lua_State *L)
 {
